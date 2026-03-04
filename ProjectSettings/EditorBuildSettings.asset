@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Agora-RTC-Plugin/API-Example/HomeScene.unity
+    guid: afbde366e660d4272b8d45e2d7d96f50
+  - enabled: 1
+    path: Assets/Agora-RTC-Plugin/API-Example/Examples/Basic/JoinChannelAudio/BasicAudioCallScene.unity
+    guid: 1af6c3e08db844534ad959cdf0127444
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

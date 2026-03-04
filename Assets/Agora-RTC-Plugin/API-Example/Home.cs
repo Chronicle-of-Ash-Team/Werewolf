@@ -40,43 +40,43 @@ namespace Agora_RTC_Plugin.API_Example
 //#if AGORA_NUMBER_UID
             "BasicAudioCallScene",
             
-            "AudioCallRouteScene",
-            "AudioMixingScene",
-            "AudioSpectrumScene",
-            "ChannelMediaRelayScene",
+            //"AudioCallRouteScene",
+            //"AudioMixingScene",
+            //"AudioSpectrumScene",
+            //"ChannelMediaRelayScene",
             
-            "CustomCaptureAudioScene",
+            //"CustomCaptureAudioScene",
             
-            "CustomRenderAudioScene",
-            "DeviceManagerScene",
+            //"CustomRenderAudioScene",
+            //"DeviceManagerScene",
             
-            "JoinChannelVideoTokenScene",
-            "JoinChannelWithUserAccountScene",
-            "MediaPlayerScene",
-            "MediaPlayerOpenWithMediaSourceScene",
-            "MediaRecorderScene",
-            "MetadataScene",
-            "MusicPlayerScene",
-            "PluginScene",
-            "ProcessAudioRawDataScene",
-            
-            
+            //"JoinChannelVideoTokenScene",
+            //"JoinChannelWithUserAccountScene",
+            //"MediaPlayerScene",
+            //"MediaPlayerOpenWithMediaSourceScene",
+            //"MediaRecorderScene",
+            //"MetadataScene",
+            //"MusicPlayerScene",
+            //"PluginScene",
+            //"ProcessAudioRawDataScene",
             
             
             
             
-            "SetEncryptionScene",
-            
-            "SpatialAudioWithMediaPlayerScene",
-            "SpatialAudioWithUsers",
-            "StartDirectCdnStreamingScene",
-            "StartLocalVideoTranscoderScene",
-            "StartRhythmPlayerScene",
-            "StartRtmpStreamWithTranscodingScene",
-            "StreamMessageScene",
             
             
-            "VoiceChangerScene",
+            //"SetEncryptionScene",
+            
+            //"SpatialAudioWithMediaPlayerScene",
+            //"SpatialAudioWithUsers",
+            //"StartDirectCdnStreamingScene",
+            //"StartLocalVideoTranscoderScene",
+            //"StartRhythmPlayerScene",
+            //"StartRtmpStreamWithTranscodingScene",
+            //"StreamMessageScene",
+            
+            
+            //"VoiceChangerScene",
             
 //#endif
 //#if AGORA_STRING_UID
