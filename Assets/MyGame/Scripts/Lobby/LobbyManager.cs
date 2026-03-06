@@ -47,6 +47,9 @@ public class LobbyManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        playerName = "duy" + UnityEngine.Random.Range(10, 99);
+        Debug.Log("Player Name: " + playerName);
+        SetPlayerName(playerName);
     }
 
     private async void Start()
@@ -60,10 +63,6 @@ public class LobbyManager : MonoBehaviour
             OnLobbyTaskCompleted?.Invoke(this, EventArgs.Empty);
             return;
         }
-        playerName = "duy" + UnityEngine.Random.Range(10, 99);
-        Debug.Log("Player Name: " + playerName);
-
-        //SceneLoader.playerName = playerName;
 
         AuthenticationService.Instance.SignedIn += () =>
         {
