@@ -47,6 +47,13 @@ public class LobbyManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
+
         playerName = "duy" + UnityEngine.Random.Range(10, 99);
         Debug.Log("Player Name: " + playerName);
         SetPlayerName(playerName);
@@ -59,7 +66,6 @@ public class LobbyManager : MonoBehaviour
 
         if (AuthenticationService.Instance.IsSignedIn)
         {
-            //playerName = SceneLoader.playerName;
             OnLobbyTaskCompleted?.Invoke(this, EventArgs.Empty);
             return;
         }
@@ -432,6 +438,11 @@ public class LobbyManager : MonoBehaviour
                 {"PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
             }
         };
+    }
+
+    public string GetRelayCode()
+    {
+        return joinedLobby.Data["RelayJoinCode"].Value;
     }
 
     public string GetPlayerName()
