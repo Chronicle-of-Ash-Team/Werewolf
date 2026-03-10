@@ -16,18 +16,7 @@ public class AgoraManager : MonoBehaviour
 
     void Start()
     {
-        rtcEngine = RtcEngine.CreateAgoraRtcEngine();
-
-        RtcEngineContext context = new RtcEngineContext();
-        context.appId = APP_ID;
-        context.channelProfile = CHANNEL_PROFILE_TYPE.CHANNEL_PROFILE_LIVE_BROADCASTING;
-        context.audioScenario = AUDIO_SCENARIO_TYPE.AUDIO_SCENARIO_DEFAULT;
-
-        rtcEngine.Initialize(context);
-        rtcEngine.InitEventHandler(new UserEventHandler());
-
-        rtcEngine.EnableAudio();
-        rtcEngine.EnableAudioVolumeIndication(200, 3, true);
+        InitRtcEngine();
 
         JoinChannel("test_channel");
     }
@@ -41,18 +30,43 @@ public class AgoraManager : MonoBehaviour
         }
     }
 
+    public void InitRtcEngine()
+    {
+        rtcEngine = RtcEngine.CreateAgoraRtcEngine();
+
+        RtcEngineContext context = new RtcEngineContext();
+        context.appId = APP_ID;
+        context.channelProfile = CHANNEL_PROFILE_TYPE.CHANNEL_PROFILE_COMMUNICATION;
+        context.audioScenario = AUDIO_SCENARIO_TYPE.AUDIO_SCENARIO_DEFAULT;
+        context.areaCode = AREA_CODE.AREA_CODE_CN;
+
+        rtcEngine.Initialize(context);
+        rtcEngine.InitEventHandler(new UserEventHandler());
+
+        rtcEngine.EnableAudio();
+        rtcEngine.EnableAudioVolumeIndication(200, 3, true);
+    }
+
     public void JoinChannel(string channel)
     {
         string token = ""; // ko dùng token
 
         rtcEngine.JoinChannel(token, channel, "", 0);
-        Debug.Log(rtcEngine.GetConnectionState());
+        Debug.Log("Join channel: " + channel);
     }
 
     public void LeaveChannel()
     {
         rtcEngine.LeaveChannel();
     }
+
+    public void SetMic(bool enable)
+    {
+        rtcEngine.MuteLocalAudioStream(!enable);
+
+        Debug.Log("Mic: " + (enable ? "ON" : "OFF"));
+    }
+
 }
 
 class UserEventHandler : IRtcEngineEventHandler
