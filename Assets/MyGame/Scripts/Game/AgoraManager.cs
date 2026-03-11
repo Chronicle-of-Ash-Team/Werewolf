@@ -12,13 +12,12 @@ public class AgoraManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        InitRtcEngine();
     }
 
     void Start()
     {
-        InitRtcEngine();
-
-        JoinChannel("test_channel");
+        JoinChannel(LobbyManager.Instance.GetLobbyName() + "_open");
     }
 
     void OnDestroy()

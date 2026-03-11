@@ -440,6 +440,11 @@ public class LobbyManager : MonoBehaviour
         };
     }
 
+    public string GetLobbyName()
+    {
+        return joinedLobby.Name;
+    }
+
     public string GetRelayCode()
     {
         return joinedLobby.Data["RelayJoinCode"].Value;

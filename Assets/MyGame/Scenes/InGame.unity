@@ -497,6 +497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 821877599}
+  - component: {fileID: 821877600}
   m_Layer: 5
   m_Name: HomeUI
   m_TagString: Untagged
@@ -529,6 +530,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &821877600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821877598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8850fb0b3e847a04097e4f382b08d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomNameTxt: {fileID: 1733178961}
+  gameStateTxt: {fileID: 1473061017}
+  micButton: {fileID: 847977516}
+  leaveButton: {fileID: 72444604}
 --- !u!1 &847977514
 GameObject:
   m_ObjectHideFlags: 0
