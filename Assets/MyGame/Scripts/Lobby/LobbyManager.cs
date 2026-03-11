@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Unity.Collections;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
@@ -46,12 +47,12 @@ public class LobbyManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
+        Instance = this;
         DontDestroyOnLoad(gameObject);
 
         playerName = "duy" + UnityEngine.Random.Range(10, 99);
@@ -460,3 +461,4 @@ public class LobbyManager : MonoBehaviour
         this.playerName = playerName;
     }
 }
+

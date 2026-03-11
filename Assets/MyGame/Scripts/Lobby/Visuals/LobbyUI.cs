@@ -51,6 +51,12 @@ public class LobbyUI : MonoBehaviour
         LobbyManager.Instance.OnLobbyCreated += LobbyManager_OnLobbyCreated;
     }
 
+    private void OnDestroy()
+    {
+        LobbyManager.Instance.OnLobbyDataChanged -= LobbyManager_OnLobbyDataChanged;
+        LobbyManager.Instance.OnLobbyCreated -= LobbyManager_OnLobbyCreated;
+    }
+
     private void LobbyManager_OnLobbyCreated(object sender, LobbyManager.OnLobbyCreatedEventArgs e)
     {
         UpdateLobby(e.hostLobby);

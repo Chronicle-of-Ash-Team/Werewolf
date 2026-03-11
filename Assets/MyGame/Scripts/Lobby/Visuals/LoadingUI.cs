@@ -11,6 +11,13 @@ public class LoadingUI : MonoBehaviour
         Hide();
     }
 
+    private void OnDestroy()
+    {
+        LobbyManager.Instance.OnLobbyTaskStarted -= LobbyManager_OnLobbyTaskStarted;
+        LobbyManager.Instance.OnLobbyTaskCompleted -= LobbyManager_OnLobbyTaskCompleted;
+        LobbyManager.Instance.OnLobbyError -= LobbyManager_OnLobbyError;
+    }
+
     private void LobbyManager_OnLobbyError(object sender, System.EventArgs e)
     {
         Hide();

@@ -1,4 +1,6 @@
 ﻿using Agora.Rtc;
+using Unity.Collections;
+using Unity.Netcode;
 using UnityEngine;
 
 public class AgoraManager : MonoBehaviour
@@ -17,7 +19,7 @@ public class AgoraManager : MonoBehaviour
 
     void Start()
     {
-        JoinChannel(LobbyManager.Instance.GetLobbyName() + "_open");
+        //JoinChannel(LobbyManager.Instance.GetLobbyName() + "_open");
     }
 
     void OnDestroy()
@@ -46,7 +48,7 @@ public class AgoraManager : MonoBehaviour
         rtcEngine.EnableAudioVolumeIndication(200, 3, true);
     }
 
-    public void JoinChannel(string channel)
+    public void JoinChannel(string channel, uint uuid)
     {
         string token = ""; // ko dùng token
 
@@ -65,7 +67,6 @@ public class AgoraManager : MonoBehaviour
 
         Debug.Log("Mic: " + (enable ? "ON" : "OFF"));
     }
-
 }
 
 class UserEventHandler : IRtcEngineEventHandler
