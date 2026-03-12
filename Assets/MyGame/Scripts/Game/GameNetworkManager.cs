@@ -50,7 +50,7 @@ public class GameNetworkManager : NetworkBehaviour
 
     private void Update()
     {
-        Debug.Log("Player count: " + playerDatas.Count);
+        //Debug.Log("Player count: " + playerDatas.Count);
     }
 
     private void OnPreShutdown()

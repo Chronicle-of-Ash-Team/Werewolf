@@ -37,6 +37,8 @@ public class AgoraManager : MonoBehaviour
         rtcEngine.Initialize(context);
         rtcEngine.InitEventHandler(new UserEventHandler());
 
+        rtcEngine.SetAudioEffectPreset(AUDIO_EFFECT_PRESET.VOICE_CHANGER_EFFECT_HULK);
+
         rtcEngine.EnableAudio();
         rtcEngine.EnableAudioVolumeIndication(200, 3, true);
     }
@@ -57,8 +59,13 @@ public class AgoraManager : MonoBehaviour
     public void SetMic(bool enable)
     {
         rtcEngine.MuteLocalAudioStream(!enable);
-
         Debug.Log("Mic: " + (enable ? "ON" : "OFF"));
+    }
+
+    public void SetVoiceEffect(AUDIO_EFFECT_PRESET effect)
+    {
+        rtcEngine.SetAudioEffectPreset(effect);
+        Debug.Log("Voice effect: " + effect);
     }
 }
 
