@@ -1,6 +1,4 @@
 ﻿using Agora.Rtc;
-using Unity.Collections;
-using Unity.Netcode;
 using UnityEngine;
 
 public class AgoraManager : MonoBehaviour
@@ -15,11 +13,6 @@ public class AgoraManager : MonoBehaviour
     {
         Instance = this;
         InitRtcEngine();
-    }
-
-    void Start()
-    {
-        //JoinChannel(LobbyManager.Instance.GetLobbyName() + "_open");
     }
 
     void OnDestroy()
@@ -81,7 +74,7 @@ class UserEventHandler : IRtcEngineEventHandler
         {
             if (speaker.uid == 0)
             {
-                Debug.Log("Mic volume: " + speaker.volume);
+                //Debug.Log("Mic volume: " + speaker.volume);
             }
         }
     }

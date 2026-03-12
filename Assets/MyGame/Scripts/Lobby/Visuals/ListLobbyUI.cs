@@ -30,6 +30,12 @@ public class ListLobbyUI : MonoBehaviour
         });
     }
 
+    private void OnDestroy()
+    {
+        menuUI.OnListLobbyClick -= MenuUI_OnListLobbyClick;
+        LobbyManager.Instance.OnListLobbiesChanged -= LobbyManager_OnListLobbiesChanged;
+    }
+
     private void LobbyManager_OnListLobbiesChanged(object sender, LobbyManager.OnListLobbiesChangedEventArgs e)
     {
         UpdateListLobby();

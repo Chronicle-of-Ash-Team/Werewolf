@@ -44,6 +44,8 @@ public class GameUIManager : MonoBehaviour
                 player.AgoraUid
             );
 
+            ui.Show();
+
             AgoraManager.Instance.JoinChannel(LobbyManager.Instance.GetLobbyName(), player.AgoraUid);
         }
     }

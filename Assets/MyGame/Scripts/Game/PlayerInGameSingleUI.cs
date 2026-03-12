@@ -1,6 +1,4 @@
 using TMPro;
-using Unity.Collections;
-using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,11 +12,17 @@ public class PlayerInGameSingleUI : MonoBehaviour
     {
         playerNameTxt.text = name;
         this.uid = uid;
+        Debug.Log("Set player: " + name + " - " + uid);
     }
 
     public void SetVolume(int volume)
     {
         volumeSlider.value = volume / 255f;
+    }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
     }
 }
 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Unity.Collections;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
@@ -423,6 +422,27 @@ public class LobbyManager : MonoBehaviour
             Debug.LogError($"Lỗi lấy regions: {e}");
             return null;
         }
+    }
+
+    public string GetPlayerNameFromLobby(string lobbyPlayerId)
+    {
+        if (joinedLobby == null)
+            return "Unknown";
+
+        Player player = joinedLobby.Players
+            .FirstOrDefault(p => p.Id == lobbyPlayerId);
+
+        if (player != null && player.Data.ContainsKey("PlayerName"))
+        {
+            return player.Data["PlayerName"].Value;
+        }
+
+        return "Unknown";
+    }
+
+    public Lobby GetJoinedLobby()
+    {
+        return joinedLobby;
     }
 
     public List<Lobby> GetCurrentLobbies()
