@@ -12,9 +12,9 @@ public class GameUIManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI roomNameTxt;
     [SerializeField] private TextMeshProUGUI gameStateTxt;
-    [SerializeField] private Button micButton;
     [SerializeField] private Button leaveButton;
     [SerializeField] private TMP_Dropdown voiceEffectDropdown;
+    [SerializeField] private Toggle micToggle;
 
     private Dictionary<string, AUDIO_EFFECT_PRESET> voiceEffects;
 
@@ -25,6 +25,12 @@ public class GameUIManager : MonoBehaviour
             LobbyManager.Instance.LeaveLobby();
             AgoraManager.Instance.LeaveChannel();
             SceneManager.LoadScene("MainMenu");
+        });
+
+        micToggle.isOn = false;
+        micToggle.onValueChanged.AddListener((isOn) =>
+        {
+            AgoraManager.Instance.SetMic(!isOn);
         });
 
         voiceEffects = new Dictionary<string, AUDIO_EFFECT_PRESET>
@@ -46,7 +52,7 @@ public class GameUIManager : MonoBehaviour
 
     void Start()
     {
-        roomNameTxt.text = LobbyManager.Instance.GetLobbyName();
+        roomNameTxt.text = GameManager.Instance.GetGameRoomName();
 
         SpawnPlayers();
     }
@@ -61,7 +67,6 @@ public class GameUIManager : MonoBehaviour
 
     private void SpawnPlayers()
     {
-        Debug.Log(GameNetworkManager.Instance.GetPlayers());
         foreach (var player in GameNetworkManager.Instance.GetPlayers())
         {
             var obj = Instantiate(playerPref, playerContainer);
